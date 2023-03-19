@@ -7,7 +7,7 @@ import { FormConfig } from './formly-configs/form-config';
 
 @Component({
     selector: 'test-form1',
-    // styleUrls: ['./test-form1.component.scss'],
+    styleUrls: ['./test-form1.component.scss'],
     templateUrl: './test-form1.component.html',
 })
 export class TestForm1Component implements OnInit {

@@ -20,46 +20,83 @@ export class TestForm1Config {
 
     this.buttonText = 'Login';
 
-    this.fieldConfigs = [
-      {
-        className: 'input-email',
-        focus: true,
-        key: 'email',
-        templateOptions: {
-          placeholder: 'you@company.com',
-          required: true,
-          type: 'email',
-        },
-        type: 'input',
-        validation: {
-          messages: {
-            required: `Please enter an email address.`,
-          },
-        },
-        validators: {
-          email: {
-            expression: (c: FormControl) => EmailValidator(c),
-            message: 'Please enter a valid email address.',
-          },
-        },
-      },
-      {
-        className: 'input-password',
-        key: 'password',
-        templateOptions: {
-          minLength: 5,
-          placeholder: 'password',
-          required: true,
+    this.fieldConfigs = [ { 
+        fieldGroupClassName: 'display-flex',
+        fieldGroup: [  {
+          className: 'flex-1 input-email',
+          focus: true,
+          key: 'email',
           type: 'input',
-        },
-        type: 'input',
-        validation: {
-          messages: {
-            minlength: `The password has to be longer.`,
-            required: `Please enter a password.`,
+          props: {
+            label: 'EMail',
+            placeholder: 'you@company.com',
+            required: true,
+            type: 'email'
           },
-        },
+          validation: {
+            messages: {
+              required: `Please enter an email address.`,
+            },
+          },
+          validators: {
+            email: {
+              expression: (c: FormControl) => EmailValidator(c),
+              message: 'Please enter a valid email address.',
+            },
+          },
+        },  {
+          className: 'flex-1 input-password',
+          key: 'password',
+          type: 'input',
+          props: {
+            label: 'password',
+            minLength: 5,
+            placeholder: 'password',
+            required: true,
+          },
+          validation: {
+            messages: {
+              minlength: `The password has to be longer.`,
+              required: `Please enter a password.`,
+            },
+          },
+        }]
       },
-    ];
+        // {
+        //   template: '<hr />',
+        // },
+      { fieldGroupClassName: 'display-flex',
+        fieldGroup: [  {
+          className: 'flex-2 ',
+          key: 'firstName',
+          type: 'input',
+          props: {
+            label: 'First Name',
+            placeholder: 'First Name',
+            required: true,
+          },
+        }, {
+          className: 'flex-2 ',
+          key: 'lastName',
+          type: 'input',
+          props: {
+            label: 'Last name',
+            placeholder: 'Last Name',
+            required: false,
+          },
+          
+        }
+       ]
+     }, {
+      fieldGroup: [  {
+        className: 'flex-2 ',
+        key: 'isMarried',
+        type: 'checkbox',
+        props: {
+          label: 'Married?',
+        }
+      } ]
+    }]
   }
 }
+

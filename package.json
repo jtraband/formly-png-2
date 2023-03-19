@@ -1,5 +1,5 @@
 {
-  "name": "j-formly-png-2",
+  "name": "formly-png-2",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -20,6 +20,9 @@
     "@angular/router": "^15.0.0",
     "@ngx-formly/core": "^6.1.3",
     "@ngx-formly/primeng": "^6.1.3",
+    "primeflex": "^3.3.0",
+    "primeicons": "^6.0.1",
+    "primeng": "^15.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
