@@ -4,7 +4,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 
 export interface TestForm2Model {
   style: string;
-  password: string;
+  size: string;
 }
 
 export class TestForm2Config {
@@ -15,7 +15,7 @@ export class TestForm2Config {
   constructor() {
     this.model = {
       style: '',
-      password: '',
+      size: ''
     };
 
     this.buttonText = 'Process';

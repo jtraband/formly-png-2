@@ -77,6 +77,7 @@ export class TestForm1Component implements OnInit {
     submit(formModel: TestForm1Model) {
         console.log('Successfully logged in');
         console.log(this.formConfig!.model);
+        alert(JSON.stringify(this.formConfig!.model));
     }
 
 }
