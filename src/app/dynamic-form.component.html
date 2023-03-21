@@ -1,13 +1,13 @@
-<form class="form-login" [formGroup]="formGroup" *ngIf="formConfig">
-    <formly-form [form]="formGroup" [model]="formConfig.model" [fields]="fields"> </formly-form>
-    <div *ngIf="formConfig.buttonText">
+<form class="form-login" [formGroup]="formGroup" >
+    <formly-form [form]="formGroup" [model]="formConfig!.model" [fields]="fieldConfigs"> </formly-form>
+    <div *ngIf="formConfig!.buttonText">
         <button
             class="button-submit btn btn-success btn-block my-2"
             type="submit"
             [disabled]="!formGroup.valid"
             (click)="submit()"
         >
-            {{ formConfig.buttonText  }}
+            {{ formConfig!.buttonText  }}
         </button>
     </div>
 </form>

@@ -1,8 +1,10 @@
+<p-card>
+    <p-dropdown [options]="configItems" [(ngModel)]="selectedConfigCode" placeholder="Select a config" 	[showClear]="true"
+        optionLabel="name" optionValue="code"  (onChange)="onChange($event)">
+    </p-dropdown>
+</p-card>
+    
 
-<div class="card">
-    <div class="card-container yellow-container">
-        <div class="block bg-yellow-500 font-bold text-center p-4 border-round mb-3">
-            <dynamic-form class="test-form1" [formConfig]="formConfig" (submitted)="submit($event)"> </dynamic-form>
-        </div>
-    </div>
-</div>
+<p-card header="Dynamic section">
+    <dynamic-form *ngIf="formConfig" class="test-form1" [formConfig]="formConfig" (submitted)="submit($event)"> </dynamic-form>
+</p-card> 

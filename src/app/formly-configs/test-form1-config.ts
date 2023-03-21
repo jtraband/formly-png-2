@@ -23,7 +23,7 @@ export class TestForm1Config {
     this.fieldConfigs = [ { 
         fieldGroupClassName: 'display-flex',
         fieldGroup: [  {
-          className: 'flex-1 input-email',
+          className: 'flex-2 input-email',
           focus: true,
           key: 'email',
           type: 'input',
@@ -38,14 +38,14 @@ export class TestForm1Config {
               required: `Please enter an email address.`,
             },
           },
-          validators: {
-            email: {
-              expression: (c: FormControl) => EmailValidator(c),
-              message: 'Please enter a valid email address.',
-            },
-          },
+          // validators: {
+          //   email: {
+          //     expression: (c: FormControl) => EmailValidator(c),
+          //     message: 'Please enter a valid email address.',
+          //   },
+          // },
         },  {
-          className: 'flex-1 input-password',
+          className: 'flex-2 input-password',
           key: 'password',
           type: 'input',
           props: {
@@ -67,11 +67,13 @@ export class TestForm1Config {
         // },
       { fieldGroupClassName: 'display-flex',
         fieldGroup: [  {
-          className: 'flex-2 ',
+          className: 'flex-2' ,
           key: 'firstName',
           type: 'input',
           props: {
-            label: 'First Name',
+            type: 'text',
+            maxlength: 7,
+            label: 'First Name 2',
             placeholder: 'First Name',
             required: true,
           },
@@ -89,7 +91,7 @@ export class TestForm1Config {
        ]
      }, {
       fieldGroup: [  {
-        className: 'flex-2 ',
+        className: 'flex-1 ',
         key: 'isMarried',
         type: 'checkbox',
         props: {

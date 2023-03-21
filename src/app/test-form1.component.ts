@@ -2,8 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
+// import {SelectItem} from 'primeng/api';
+// import {SelectItemGroup} from 'primeng/api';
+
 import { TestForm1Config, TestForm1Model } from './formly-configs/test-form1-config';
 import { FormConfig } from './formly-configs/form-config';
+import { TestForm2Config } from './formly-configs/test-form2-config';
+
+interface ConfigItem {
+    name: string,
+    code: string
+}
 
 @Component({
     selector: 'test-form1',
@@ -11,26 +20,63 @@ import { FormConfig } from './formly-configs/form-config';
     templateUrl: './test-form1.component.html',
 })
 export class TestForm1Component implements OnInit {
-    // loginForm: FormGroup;
-    showPassword = false;
-    formConfig: FormConfig;
-    model: TestForm1Model;
+    formConfig: FormConfig | null;
+    configItems: ConfigItem[];
+    selectedConfigCode: string; 
 
     constructor(
         private title: Title,
     ) {
-        this.formConfig = new TestForm1Config();
-        this.model = this.formConfig.model;
+
+        this.configItems = [
+            {name: 'Test 1', code: 'T1'},
+            {name: 'Test 2', code: 'T2'},
+            {name: 'Test 3', code: 'T3'},
+        ];
+
+        this.formConfig = null;
+        this.selectedConfigCode = 'T1';
+        this.selectForm('T1');
     }
 
     ngOnInit() {
         this.title.setTitle('Test Form 1');
-
         
+    }
+
+    
+    
+
+    onChange(event: any) {
+        console.log('event :' + event);
+        console.log(event.value);
+        // nulling formConfig removes the dynamic form
+        this.formConfig = null;
+        setTimeout( () => {
+            // selectForm recreates formConfig which recreates the dynamic form.
+            this.selectForm(event.value);
+        } );
+        
+    }
+
+    selectForm(formCode: string) {
+        
+        switch ( formCode ) {
+            case 'T1' :
+                this.formConfig = new TestForm1Config();
+                break;
+            case 'T2':
+                this.formConfig = new TestForm2Config();
+                break;
+            default: 
+                // 
+                break;
+         }
     }
 
     submit(formModel: TestForm1Model) {
         console.log('Successfully logged in');
+        console.log(this.formConfig!.model);
     }
 
 }
