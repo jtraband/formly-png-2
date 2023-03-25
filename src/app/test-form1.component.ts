@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 
 // import {SelectItem} from 'primeng/api';
 // import {SelectItemGroup} from 'primeng/api';
 
-import { TestForm1Config, TestForm1Model } from './formly-configs/test-form1-config';
+
 import { FormConfig } from './formly-configs/form-config';
+import { TestForm1Config, TestForm1Model } from './formly-configs/test-form1-config';
+
 import { TestForm2Config } from './formly-configs/test-form2-config';
+import { TestForm3Config, TestForm3Model } from './formly-configs/test-form3-config';
 
 interface ConfigItem {
     name: string,
@@ -68,6 +70,9 @@ export class TestForm1Component implements OnInit {
             case 'T2':
                 this.formConfig = new TestForm2Config();
                 break;
+            case 'T3':
+                this.formConfig = new TestForm3Config();
+                break;                
             default: 
                 // 
                 break;

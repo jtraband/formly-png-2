@@ -30,17 +30,23 @@ export class TestForm2Config {
           props: {
             label: 'Style',
             placeholder: 'Style name',
+            maxLength: 7,
             required: true,
           },
         },  {
           className: 'flex-2',
           key: 'size',
-          type: 'input',
+          type: 'select',
           props: {
             label: 'Size',
-            minLength: 5,
             placeholder: 'Size',
             required: true,
+            options: [
+              { label: 'Small', value: 'S' },
+              { label: 'Medium', value: 'M' },
+              { label: 'Large', value: 'L' },
+              { label: 'Extra Large', value: 'XL' },
+            ],
           },
         }]
       },
@@ -48,22 +54,22 @@ export class TestForm2Config {
       { fieldGroupClassName: 'display-flex',
         fieldGroup: [  {
           className: 'flex-2' ,
-          key: 'firstName',
+          key: 'embellishment',
           type: 'input',
           props: {
             type: 'text',
             maxlength: 7,
-            label: 'First Name 2',
-            placeholder: 'First Name',
-            required: true,
+            label: 'Embellishment',
+            placeholder: 'Embellishment',
+            required: false,
           },
         }, {
           className: 'flex-2 ',
-          key: 'lastName',
+          key: 'logo',
           type: 'input',
           props: {
-            label: 'Last name',
-            placeholder: 'Last Name',
+            label: 'Logo',
+            placeholder: 'Logo',
             required: false,
           },
           
