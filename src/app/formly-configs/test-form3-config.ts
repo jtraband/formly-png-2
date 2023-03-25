@@ -26,7 +26,7 @@ export class TestForm3Config {
         type: 'input',
         props: {
           label: 'Pants Style',
-          placeholder: 'Must start with SK-',
+          placeholder: 'Pants style',
           maxLength: 7,
           required: true,
         },

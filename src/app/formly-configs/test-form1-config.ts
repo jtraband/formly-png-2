@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { EmailValidator } from '../validators/email-validator';
+import { EmailValidator } from '../validators/validator';
 import { DataService } from '../data-service';
 
 export interface TestForm1Model {

@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FormlyModule } from '@ngx-formly/core';
+import { AbstractControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { FormlyPrimeNGModule } from '@ngx-formly/primeng';
 import { AppComponent } from './app.component';
 import { FormComponent } from './dynamic-form.component';
@@ -14,9 +14,11 @@ import { FormlyFieldMultiSelect } from './custom-field-types/multiselect.compone
 
 
 import { DropdownModule } from 'primeng/dropdown';
-import {MultiSelectModule} from 'primeng/multiselect';
-import {FormlyDatepickerModule} from '@ngx-formly/primeng/datepicker';
-import {CardModule} from 'primeng/card';
+import { MultiSelectModule} from 'primeng/multiselect';
+import { FormlyDatepickerModule} from '@ngx-formly/primeng/datepicker';
+
+import { CardModule} from 'primeng/card';
+import { StyleValidator, StyleValidatorMessage } from './validators/validator';
 
 
 @NgModule({
@@ -31,6 +33,17 @@ import {CardModule} from 'primeng/card';
     FormlyModule.forRoot( {
       types: [
         { name: 'multiselect', component: FormlyFieldMultiSelect },
+        { name: 'styleInput',
+          extends: 'input',
+          defaultOptions: {
+            validators: {
+              style: {
+                expression: (c: AbstractControl) => !c.value || /SK-.*/.test(c.value),
+                message: (error: any, field: FormlyFieldConfig) => `"${field.formControl?.value}" is not a valid Style - must begin with SK-`,
+              },
+            },
+          },
+        },
       ],
     }),
     ReactiveFormsModule,
@@ -39,7 +52,7 @@ import {CardModule} from 'primeng/card';
     DropdownModule,
     MultiSelectModule,
     FormlyDatepickerModule,
-    
+
   ],
 
   providers: [],

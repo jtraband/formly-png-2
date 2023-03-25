@@ -26,13 +26,14 @@ export class TestForm2Config {
           className: 'flex-2',
           focus: true,
           key: 'style',
-          type: 'input',
+          type: 'styleInput',
           props: {
             label: 'Style',
-            placeholder: 'Style name',
-            maxLength: 7,
+            placeholder: 'Must begin with SK-',
+            maxLength: 12,
             required: true,
           },
+          
         },  {
           className: 'flex-2',
           key: 'size',
