@@ -2,8 +2,7 @@ import { FormControl } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 export interface TestForm3Model {
-  style: string;
-  size: string;
+  
 }
 
 export class TestForm3Config {
@@ -13,8 +12,7 @@ export class TestForm3Config {
 
   constructor() {
     this.model = {
-      style: '',
-      size: '',
+      
     };
 
     this.buttonText = 'Ok';
@@ -23,7 +21,7 @@ export class TestForm3Config {
       {
         focus: true,
         key: 'pantsStyle',
-        type: 'input',
+        type: 'styleInput',
         props: {
           label: 'Pants Style',
           placeholder: 'Pants style',
@@ -78,6 +76,22 @@ export class TestForm3Config {
             { label: 'Royal Blue', value: 'RB' },
             { label: 'Navy Blue', value: 'NB' },
             
+          ],
+        },
+      },
+      {
+        key: 'button',
+        type: 'radio',
+        props: {
+          label: 'Button Type',
+          placeholder: 'Button Type',
+          required: true,
+          options: [
+            { label: 'Round', value: 'Ro' },
+            { label: 'Square', value: 'Sq' },
+            { label: 'Oval', value: 'Ov' },
+            { label: 'None', value: 'None' },
+           
           ],
         },
       },

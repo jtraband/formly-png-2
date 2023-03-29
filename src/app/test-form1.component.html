@@ -1,4 +1,5 @@
 <p-card>
+    <label class="mr-6">Select a Form </label>
     <p-dropdown [options]="configItems" [(ngModel)]="selectedConfigCode" placeholder="Select a config" 	[showClear]="true"
         optionLabel="name" optionValue="code"  (onChange)="onChange($event)">
     </p-dropdown>
