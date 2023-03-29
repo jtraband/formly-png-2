@@ -42,7 +42,7 @@ export class TestForm1Component implements OnInit {
     }
 
     ngOnInit() {
-        this.title.setTitle('Test Form 1');
+        this.title.setTitle('Test Form');
         
     }
 
